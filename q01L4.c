@@ -20,7 +20,6 @@ int main(){
     for (int i = 0; i < TAM; i++){
         printf("[%.2f] ", vet[i]);
     }
-    putchar('\b');
     putchar('\n');
     
     printf("Soma do maior e do menor elemento fornecido = %.2f\n", maior + menor);
