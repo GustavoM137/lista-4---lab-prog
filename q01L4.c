@@ -5,20 +5,20 @@ int main(){
     float vet[TAM], menor, maior;
 
     puts("Digite o valor do elemento 0:");
-    scanf("%f", vet);
-    maior = menor = vet[0];
+    scanf("%f", &vet[0]); // scanf("%f", vet);
+    maior = menor = vet[0]; // = *vet;
 
     for (int i = 1; i < TAM; i++){
         printf("Digite o valor do elemento %d:\n", i);
-        scanf("%f", vet + i);
+        scanf("%f", &vet[i]); // scanf("%f", vet + i);
 
-        if (vet[i] > maior) maior = vet[i];
+        if (vet[i] > maior) maior = vet[i]; // vet[i] = *(vet + i);
         if (vet[i] < menor) menor = vet[i];
     }
 
     puts("Vetor:");
     for (int i = 0; i < TAM; i++){
-        printf("[%.2f] ", vet[i]);
+        printf("[%.2f] ", vet[i]); // printf("[%.2f] ", *(vet + i)); 
     }
     putchar('\n');
     
