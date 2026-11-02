@@ -3,25 +3,25 @@
 #define TAM 15
 
 int main(){
-    char str[TAM], caractere, contem_char = 0;
+    char str[TAM], caractere;
 
-    puts("Digite a string (14 elementos):");
+    printf("Digite a string (%d elementos):\n", TAM - 1);
     fgets(str, sizeof(str), stdin);
 
     // limpa o buffer se não tiver \n na string
-    if (str[strcspn(str, "\n")] == '\0')
-        while ((caractere = getchar()) != '\n' && caractere != EOF);
+    size_t pos = strcspn(str, "\n");
+    if (str[pos] == '\0'){
+        int limpar_buffer;
+        while ((limpar_buffer = getchar()) != '\n' && limpar_buffer != EOF);
+    }
+    else str[pos] = '\0';
 
     puts("Digite o caractere:");
     scanf("%c", &caractere);
-
-    for (int i = 0; str[i] != '\0'; i++){
-        if (str[i] == caractere) contem_char = 1;
-    }
     
     printf("String = %s\n", str);
 
-    if (contem_char) printf("A string contém o caractere fornecido ('%c').\n", caractere);
+    if (strchr(str, caractere) != NULL) printf("A string contém o caractere fornecido ('%c').\n", caractere);
     else printf("A string não contém o caractere fornecido ('%c').\n", caractere);
 
     return 0;
