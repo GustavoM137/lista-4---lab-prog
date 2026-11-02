@@ -3,16 +3,22 @@
 #define TAM 15
 
 int main(){
-    unsigned char str[TAM], count = 0;
+    char str[TAM], count = 0;
 
-    puts("Digite uma string (14 elementos)");
+    printf("Digite uma string (%d elementos)\n", TAM - 1);
     fgets(str, sizeof(str), stdin);
-    str[strcspn(str, "\n")] = '\0';
+
+    size_t pos = strcspn(str, "\n");
+    if (str[pos] == '\0'){
+        int limpar_buffer;
+        while ((limpar_buffer = getchar()) != '\n' && limpar_buffer != EOF);
+    }
+    else str[pos] = '\0';
 
     while (str[count] != '\0') count++;
 
     printf("String: %s\n", str);
-    printf("Quantidade de caracteres: %u\n", count);
+    printf("Quantidade de caracteres: %d\n", count);
 
     return 0;
 }
