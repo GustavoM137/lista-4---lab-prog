@@ -5,7 +5,7 @@ int main(){
     float vet[TAM], menor, maior;
 
     puts("Digite o valor do elemento 0:");
-    scanf("%f", &vet[0]); // scanf("%f", vet);
+    while(scanf("%f", &vet[0]) != 1) puts("Valor inválido"); // scanf("%f", vet);
     maior = menor = vet[0]; // = *vet;
 
     for (int i = 1; i < TAM; i++){
