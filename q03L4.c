@@ -10,8 +10,8 @@ int main(){
 
     size_t pos = strcspn(str, "\n");
     if (str[pos] == '\0'){
-        int limpar_buffer;
-        while ((limpar_buffer = getchar()) != '\n' && limpar_buffer != EOF);
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
     }
     else str[pos] = '\0';
 
