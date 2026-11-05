@@ -3,7 +3,7 @@
 #include <time.h>
 #include <math.h>
 #define TAM 3
-#define LIM 20
+#define LIM 19
 
 int main(){
     int num[TAM];
@@ -11,7 +11,8 @@ int main(){
     srand(time(NULL));
 
     for (int i = 0; i < TAM; i++){
-        num[i] = rand() % LIM;
+        num[i] = rand() % (LIM + 1);
+        printf("Num[%d] = %d\n", i, num[i]);
     }
     
     // calcula média aritmética
@@ -21,7 +22,7 @@ int main(){
         soma += num[i];
     }
 
-    printf("Média aritmética: %.2f\n", (float) soma / TAM);
+    printf("Média aritmética: %.2f\n", (double) soma / TAM);
 
     // calcula média geométrica
     int produto = 1;
@@ -30,7 +31,7 @@ int main(){
         produto *= num[i];
     }
 
-    printf("Média geométrica: %.2f\n", powf((float) produto, (float) 1 / TAM));
+    printf("Média geométrica: %.2f\n", pow((double) produto, 1.0 / TAM));
 
     return 0;
 }
