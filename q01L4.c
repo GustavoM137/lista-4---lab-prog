@@ -14,7 +14,11 @@ int main(){
 
     for (int i = 1; i < TAM; i++){
         printf("Digite o valor do elemento %d:\n", i);
-        scanf("%f", &vet[i]); // scanf("%f", vet + i);
+        while(scanf("%f", &vet[i]) != 1){
+            puts("Valor inválido, digite novamente:");
+            int c;
+            while ((c = getchar()) != '\n' && c != EOF);
+        }; // scanf("%f", vet + i);
 
         if (vet[i] > maior) maior = vet[i]; // vet[i] = *(vet + i);
         if (vet[i] < menor) menor = vet[i];
