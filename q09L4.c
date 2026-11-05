@@ -8,7 +8,7 @@ int main(){
         for (int j = 0; j < DIM; j++){
             printf("Digite o elemento [%d][%d]:\n", i, j);
             while(scanf("%d", &mat[i][j]) != 1){
-                puts("Valor inválido");
+                puts("Valor inválido, digite novamente:");
                 int c;
                 while((c = getchar()) != '\n' && c != EOF);
             }
@@ -17,8 +17,9 @@ int main(){
 
     for (int i = 0; i < DIM; i++){
         for (int j = 0; j < DIM; j++){
-            printf("Elemento [%d][%d]: %d\n", i, j, mat[i][j]);
+            printf("Elemento [%d][%d]: %d ", i, j, mat[i][j]);
         }
+        putchar('\n');
     }
 
     puts("Elementos da diagonal principal:");
